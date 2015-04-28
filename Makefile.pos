@@ -27,6 +27,9 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 # OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#
+# Step 3 of MicroPython build: Use Pico]OS make framework to build the library.
+#
 RELROOT = $(POS_RELROOT)
 
 PORT=$(POS_PORT)
@@ -34,9 +37,6 @@ CPU=$(POS_CPU)
 CORTEX=$(POS_CORTEX)
 BUILD=$(POS_BUILD)
 export CORTEX
-
-EXTRA_CFLAGS=-std=gnu99
-LD_SCRIPTS=launchpad.ld
 
 include $(RELROOT)make/common.mak
 

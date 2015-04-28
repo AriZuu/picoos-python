@@ -27,16 +27,21 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
 # OF THE POSSIBILITY OF SUCH DAMAGE.
 
-RELROOT = ../picoos/
+#
+# This is a little bit complicated, as both MicroPython and Pico]OS have
+# their own Makefile framework, which conflict at least on "BUILD"
+# Makefile variable usage. Work around it by executing the 
+# build in separate steps which use only one framework at time.
+#
 
-#PORT ?= cortex-m
-#CPU = msp432
-#CORTEX = m4
-#export CORTEX
+#
+# Step 1 of MicroPython build:  Figure out settings for other build steps and
+#                               execute them in sub-make.
+#
+RELROOT = ../picoos/
 
 PORT ?= unix
 CPU ?= 32
-
 BUILD = DEBUG
 
 #
@@ -61,17 +66,12 @@ INC =  -I.
 INC += -I../micropython
 INC += -I$(MP_BUILD)
 CFLAGS += $(INC)
-CFLAGS += -std=gnu99
+CFLAGS += -std=gnu99 -Wno-cast-align
 
-#Debugging/Optimization
-ifeq ($(DEBUG), 1)
-CFLAGS += -O0 -ggdb
-else
-CFLAGS += -Os -DNDEBUG
+ifeq ($(BUILD), 'RELEASE')
+CFLAGS += -DNDEBUG
 endif
 
-z:
-	echo $(CFLAGS)
 all:
 	$(MAKE) -f Makefile.mp "BUILD=$(MP_BUILD)" all V=$(V) CC=$(CC) "CFLAGS=$(CFLAGS)"
 	$(MAKE) -f Makefile.pos 

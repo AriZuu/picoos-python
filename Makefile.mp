@@ -1,9 +1,11 @@
+#
+# Step 2 of MicroPython build:  Use MicroPython make framework
+#                               to build it into .o files.
+#
 include ../micropython/py/mkenv.mk
 
-# qstr definitions (must come before including py.mk)
 QSTR_DEFS = qstrdefsport.h
 
-# include py core make definitions
 include ../micropython/py/py.mk
 
 OBJ = $(PY_O)

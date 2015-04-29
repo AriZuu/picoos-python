@@ -66,7 +66,7 @@ INC =  -I.
 INC += -I../micropython
 INC += -I$(MP_BUILD)
 CFLAGS += $(INC)
-CFLAGS += -std=gnu99 -Wno-cast-align
+CFLAGS += -std=gnu99 -Wno-cast-align -I$(DIR_CONFIG)
 
 ifeq ($(BUILD), 'RELEASE')
 CFLAGS += -DNDEBUG

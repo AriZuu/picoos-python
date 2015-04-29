@@ -4,7 +4,7 @@
 #
 include ../micropython/py/mkenv.mk
 
-QSTR_DEFS = qstrdefsport.h
+QSTR_DEFS = qstrdefsport.h $(DIR_CONFIG)/qstrdefsapp.h
 
 include ../micropython/py/py.mk
 

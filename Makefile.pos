@@ -42,13 +42,13 @@ include $(RELROOT)make/common.mak
 
 NANO = 1
 TARGET = picoos-python
-SRC_TXT =
+SRC_TXT = modpos.c
 SRC_HDR=
 
 MP_BUILD= $(DIR_OUTPUT)/$(PORT)-$(MODEEXT)/mp
 SRC_OBJ = $(wildcard $(MP_BUILD)/py/*.o) $(wildcard $(MP_BUILD)/extmod/*.o)
 
-DIR_USRINC = .. $(MP_BUILD)
+DIR_USRINC = ../micropython $(MP_BUILD)
 ifeq '$(strip $(DIR_OUTPUT))' ''
 DIR_OUTPUT = $(CURRENTDIR)/bin
 endif

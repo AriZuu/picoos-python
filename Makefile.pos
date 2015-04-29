@@ -40,6 +40,8 @@ export CORTEX
 
 include $(RELROOT)make/common.mak
 
+EXTRA_CFLAGS=-std=gnu99
+
 NANO = 1
 TARGET = picoos-python
 SRC_TXT = modpos.c

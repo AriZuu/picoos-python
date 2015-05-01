@@ -4,3 +4,5 @@ Q(Task)
 Q(sleep)
 Q(MS)
 
+Q(fileno)
+Q(flush)

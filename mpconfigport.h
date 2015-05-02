@@ -73,10 +73,12 @@ typedef int        mp_off_t;
 
 // extra built in names to add to the global namespace
 extern const struct _mp_obj_fun_builtin_t mp_builtin_open_obj;
-extern const struct _mp_obj_module_t mp_module_pos;
+extern const struct _mp_obj_fun_builtin_t mp_builtin_input_obj;
 #define MICROPY_PORT_BUILTINS \
+    { MP_OBJ_NEW_QSTR(MP_QSTR_input), (mp_obj_t)&mp_builtin_input_obj }, \
     { MP_OBJ_NEW_QSTR(MP_QSTR_open), (mp_obj_t)&mp_builtin_open_obj }, 
 
+extern const struct _mp_obj_module_t mp_module_pos;
 #define MICROPY_PORT_BUILTIN_MODULES \
     { MP_OBJ_NEW_QSTR(MP_QSTR_pos), (mp_obj_t)&mp_module_pos }, \
     MICROPY_APP_BUILTIN_MODULES

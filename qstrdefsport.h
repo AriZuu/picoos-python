@@ -6,3 +6,4 @@ Q(MS)
 
 Q(fileno)
 Q(flush)
+Q(input)

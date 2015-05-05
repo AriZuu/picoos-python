@@ -30,6 +30,9 @@
 #
 # Step 3 of MicroPython build: Use Pico]OS make framework to build the library.
 #
+
+.SUFFIXES:
+
 RELROOT = $(POS_RELROOT)
 
 PORT=$(POS_PORT)

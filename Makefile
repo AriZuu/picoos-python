@@ -42,7 +42,7 @@ RELROOT = ../picoos/
 
 PORT ?= unix
 CPU ?= 32
-BUILD = DEBUG
+BUILD ?= DEBUG
 
 #
 # Export parameters needed at Makefile.pos

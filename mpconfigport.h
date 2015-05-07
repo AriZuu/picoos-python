@@ -18,7 +18,6 @@
 #define MICROPY_ENABLE_GC           (1)
 #define MICROPY_REPL_EVENT_DRIVEN   (0)
 #define MICROPY_HELPER_REPL         (1)
-#define MICROPY_HELPER_LEXER_UNIX   (1)
 #define MICROPY_ENABLE_SOURCE_LINE  (0)
 #define MICROPY_ENABLE_DOC_STRING   (0)
 #define MICROPY_ERROR_REPORTING     (MICROPY_ERROR_REPORTING_TERSE)
@@ -37,8 +36,6 @@
 #define MICROPY_PY_COLLECTIONS      (0)
 #define MICROPY_PY_MATH             (0)
 #define MICROPY_PY_CMATH            (0)
-#define MICROPY_PY_IO               (1)
-#define MICROPY_PY_IO_FILEIO        (1)
 #define MICROPY_PY_STRUCT           (0)
 #define MICROPY_PY_SYS              (1)
 #define MICROPY_MODULE_FROZEN       (0)
@@ -86,8 +83,7 @@ extern const struct _mp_obj_module_t mp_module_pos;
 // We need to provide a declaration/definition of alloca()
 #include <stdlib.h>
 
-#define MICROPY_HW_BOARD_NAME "Pico]OS"
-#define MICROPY_HW_MCU_NAME "unknown-cpu"
+#define MICROPY_PY_SYS_PLATFORM     "Pico]OS"
 
 #define MP_STATE_PORT MP_STATE_VM
 

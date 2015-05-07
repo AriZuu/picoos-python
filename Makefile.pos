@@ -47,7 +47,7 @@ EXTRA_CFLAGS=-std=gnu99
 
 NANO = 1
 TARGET = picoos-python
-SRC_TXT = ../micropython/unix/input.c ../micropython/unix/gccollect.c ../micropython/unix/file.c modpos.c
+SRC_TXT = ../micropython/unix/input.c ../micropython/unix/gccollect.c modpos.c
 SRC_HDR=
 
 MP_BUILD= $(DIR_OUTPUT)/$(PORT)-$(MODEEXT)/mp

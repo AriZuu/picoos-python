@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015, Ari Suutari <ari@stonepile.fi>.
+# Copyright (c) 2015-2017, Ari Suutari <ari@stonepile.fi>.
 # All rights reserved. 
 # 
 # Redistribution and use in source and binary forms, with or without

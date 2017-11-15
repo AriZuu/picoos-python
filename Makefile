@@ -73,7 +73,7 @@ CFLAGS += -DNDEBUG
 endif
 
 all:
-	$(MAKE) -f Makefile.mp "BUILD=$(MP_BUILD)" all V=$(V) CC=$(CC) "CFLAGS=$(CFLAGS)"
+	$(MAKE) -f Makefile.mp "BUILD=$(MP_BUILD)" all V=$(V) CC=$(CC) "PARENT_CFLAGS=$(CFLAGS)"
 	$(MAKE) -f Makefile.pos 
 
 clean:

@@ -4,6 +4,8 @@
 #
 .SUFFIXES:
 
+CFLAGS += $(PARENT_CFLAGS)
+
 include ../micropython/py/mkenv.mk
 
 QSTR_DEFS = qstrdefsport.h $(DIR_CONFIG)/qstrdefsapp.h

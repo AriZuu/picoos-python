@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, Ari Suutari <ari@stonepile.fi>.
+ * Copyright (c) 2015-2017, Ari Suutari <ari@stonepile.fi>.
  * All rights reserved. 
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -60,11 +60,6 @@ STATIC MP_DEFINE_CONST_DICT(task_locals_dict, task_locals_dict_table);
 STATIC const mp_obj_type_t task_type = {
     { &mp_type_type },
     .name = MP_QSTR_Task,
-    .print = NULL,
-    .make_new = NULL,
-    .getiter = NULL,
-    .iternext = NULL,
-    .stream_p = NULL,
     .locals_dict = (mp_obj_t)&task_locals_dict,
 };
 
@@ -93,7 +88,6 @@ STATIC MP_DEFINE_CONST_DICT(mp_module_pos_globals, mp_module_pos_globals_table);
 
 const mp_obj_module_t mp_module_pos = {
     .base = { &mp_type_module },
-    .name = MP_QSTR_pos,
     .globals = (mp_obj_dict_t*)&mp_module_pos_globals,
 };
 

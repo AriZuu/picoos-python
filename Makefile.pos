@@ -44,11 +44,15 @@ export CORTEX
 include $(RELROOT)make/common.mak
 
 EXTRA_CFLAGS=-std=gnu99
-
 NANO = 1
-TARGET = picoos-python
-SRC_TXT = ../micropython/unix/input.c ../micropython/unix/gccollect.c modpos.c
-SRC_HDR=
+TARGET 	= picoos-python
+SRC_TXT =	../micropython/ports/unix/gccollect.c \
+		../micropython/lib/utils/pyexec.c \
+		../micropython/lib/mp-readline/readline.c \
+		../micropython/ports/unix/input.c \
+		modpos.c \
+		mphalport.c
+SRC_HDR	=
 
 MP_BUILD= $(DIR_OUTPUT)/$(PORT)-$(MODEEXT)/mp
 SRC_OBJ = $(wildcard $(MP_BUILD)/py/*.o) $(wildcard $(MP_BUILD)/extmod/*.o)

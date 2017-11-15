@@ -4,6 +4,10 @@
 
 #include <stdint.h>
 
+/*
+ * These macros are documented in micropython/py/mpconfig.h
+ */
+
 #define MICROPY_NLR_SETJMP (1)
 #define MICROPY_ALLOC_PATH_MAX      (256)
 #define MICROPY_EMIT_X64            (0)

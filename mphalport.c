@@ -29,7 +29,6 @@
  */
 
 #include <picoos.h>
-#include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/time.h>
@@ -38,35 +37,37 @@
 #include "py/runtime.h"
 #include "extmod/misc.h"
 
-int mp_hal_stdin_rx_chr(void) {
-    unsigned char c;
-        int ret = read(0, &c, 1);
-        if (ret == 0) {
-            c = 4; // EOF, ctrl-D
-        } else if (c == '\n') {
-            c = '\r';
-        }
-        return c;
+int mp_hal_stdin_rx_chr(void)
+{
+  return nosKeyGet();
 }
 
-void mp_hal_stdout_tx_strn(const char *str, size_t len) {
-    int ret = write(1, str, len);
-    mp_uos_dupterm_tx_strn(str, len);
-    (void)ret; // to suppress compiler warning
+void mp_hal_stdout_tx_strn(const char *str, size_t len)
+{
+  int i;
+
+  for (i = 0; i < len; i++)
+    nosPrintChar(str[i]);
+
+  mp_uos_dupterm_tx_strn(str, len);
 }
 
 // cooked is same as uncooked because the terminal does some postprocessing
-void mp_hal_stdout_tx_strn_cooked(const char *str, size_t len) {
-    mp_hal_stdout_tx_strn(str, len);
+void mp_hal_stdout_tx_strn_cooked(const char *str, size_t len)
+{
+  mp_hal_stdout_tx_strn(str, len);
 }
 
-void mp_hal_stdout_tx_str(const char *str) {
-    mp_hal_stdout_tx_strn(str, strlen(str));
+void mp_hal_stdout_tx_str(const char *str)
+{
+  mp_hal_stdout_tx_strn(str, strlen(str));
 }
 
-mp_uint_t mp_hal_ticks_ms(void) {
-
+mp_uint_t mp_hal_ticks_ms(void)
+{
   return jiffies * 1000 / HZ;
 }
-void mp_hal_set_interrupt_char(char c) {
+
+void mp_hal_set_interrupt_char(char c)
+{
 }
